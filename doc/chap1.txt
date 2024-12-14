@@ -1,0 +1,79 @@
+  
+  [1X1 [33X[0;0YIntroduction[133X[101X
+  
+  
+  [1X1.1 [33X[0;0YGeneral aims[133X[101X
+  
+  [33X[0;0YLet  [22XR[122X  be  an  associative  ring,  not necessarily with one. The set of all
+  elements  of  [22XR[122X  forms  a monoid with the neutral element [22X0[122X from [22XR[122X under the
+  operation [22Xr ⋅ s = r + s + rs[122X defined for all [22Xr[122X and [22Xs[122X of [22XR[122X. This operation is
+  called  the  [13Xcircle  multiplication[113X,  and  it  is  also  known  as  the [13Xstar
+  multiplication[113X.  The monoid of elements of [22XR[122X under the circle multiplication
+  is  called  the  adjoint semigroup of [22XR[122X and is denoted by [22XR^ad[122X. The group of
+  all  invertible elements of this monoid is called the adjoint group of [22XR[122X and
+  is denoted by [22XR^*[122X.[133X
+  
+  [33X[0;0YThese  notions  naturally lead to a number of questions about the connection
+  between  a  ring and its adjoint group, for example, how the ring properties
+  will  determine  properties of the adjoint group; which groups can appear as
+  adjoint groups of rings; which rings can have adjoint groups with prescribed
+  properties, etc.[133X
+  
+  [33X[0;0YFor  example,  V. O. Gorlov in [Gor95] gives a full list of finite nilpotent
+  algebras [22XR[122X, such that [22XR^2 ne 0[122X and the adjoint group of [22XR[122X is metacyclic (but
+  not cyclic).[133X
+  
+  [33X[0;0YS.  V.  Popovich  and  Ya.  P. Sysak in [PS97] characterize all quasiregular
+  algebras   such  that  all  subgroups  of  their  adjoint  group  are  their
+  subalgebras.  In  particular,  they  show that all algebras of such type are
+  nilpotent with nilpotency index at most three.[133X
+  
+  [33X[0;0YVarious  connections between properties of a ring and its adjoint group were
+  considered by O. D. Artemovych and Yu. B. Ishchuk in [AI97].[133X
+  
+  [33X[0;0YB.  Amberg  and  L.  S.  Kazarin  in  [AK00]  give  the  description  of all
+  nonisomorphic  finite  [22Xp[122X-groups  that can occur as the adjoint group of some
+  nilpotent [22Xp[122X-algebra of the dimension at most 5.[133X
+  
+  [33X[0;0YIn  [AS01]  B.  Amberg  and Ya. P. Sysak give a survey of results on adjoint
+  groups  of  radical rings, including such topics as subgroups of the adjoint
+  group;  nilpotent  groups  which are isomorphic to the adjoint group of some
+  radical  ring;  adjoint groups of finite nilpotent $p$-algebras. The authors
+  continued their investigations in further papers [AS02] and [AS04].[133X
+  
+  [33X[0;0YIn  [KS04]  L. S. Kazarin and P. Soules study associative nilpotent algebras
+  over  a  field  of  positive  characteristic whose adjoint group has a small
+  number of generators.[133X
+  
+  [33X[0;0YThe  main objective of the proposed [5XGAP[105X4 package [5XCircle[105X is to extend the [5XGAP[105X
+  functionality  for  computations  in  adjoint groups of associative rings to
+  make  it  possible  to use the [5XGAP[105X system for the investigation of the above
+  described questions.[133X
+  
+  [33X[0;0Y[5XCircle[105X  provides functionality to construct circle objects that will respect
+  the  circle  multiplication  [22Xr  ⋅  s  =  r  +  s + rs[122X, create multiplicative
+  structures,  generated  by  such objects, and compute adjoint semigroups and
+  adjoint groups of finite rings.[133X
+  
+  [33X[0;0YAlso  we hope that the package will be useful as an example of extending the
+  [5XGAP[105X  system  with new multiplicative objects. Relevant details are explained
+  in the next chapter of the manual.[133X
+  
+  
+  [1X1.2 [33X[0;0YInstallation and system requirements[133X[101X
+  
+  [33X[0;0Y[5XCircle[105X  does  not  use  external  binaries  and,  therefore,  works  without
+  restrictions  on  the  type  of  the  operating  system. This version of the
+  package  is  designed for [5XGAP[105X4.5 and no compatibility with previous releases
+  of [5XGAP[105X4 is guaranteed.[133X
+  
+  [33X[0;0YTo  use  the  [5XCircle[105X online help it is necessary to install the [5XGAP[105X4 package
+  [5XGAPDoc[105X  by  Frank Lübeck and Max Neunhöffer, which is available from the [5XGAP[105X
+  site or from [7Xhttp://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc/[107X.[133X
+  
+  [33X[0;0Y[5XCircle[105X  is  distributed  in  standard  formats  ([11Xtar.gz[111X,  [11Xtar.bz2[111X,  [11Xzip[111X  and
+  [11X-win.zip[111X)          and          can         be         obtained         from
+  [7Xhttp://www.cs.st-andrews.ac.uk/~alexk/circle/[107X  or  from the [5XGAP[105X homepage. To
+  install  the package, unpack its archive in the [11Xpkg[111X subdirectory of your [5XGAP[105X
+  installation.[133X
+  

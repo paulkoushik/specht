@@ -1,0 +1,122 @@
+<Chapter Label="Objects">
+<Heading>Symmetric Groups</Heading>
+
+To use the &Specht; package first you need to load it as follows:
+
+<Log>
+    <![CDATA[
+        gap> LoadPackage("Specht");
+        ────────────────────────────────────────────────────────────────────────────
+        Loading  Specht 1.0 (Construction of Specht modules for Monomial Groups)
+        by Koushik Paul (koushik1995.paul@gmail.com) and
+           Goetz Pfeiffer (goetz.pfeiffer@universityofgalway.ie).
+        maintained by:
+           Koushik Paul (koushik1995.paul@gmail.com).
+        Homepage: https://gap-packages.github.io/specht
+        Report issues at https://github.com/gap-packages/specht/issues
+        ────────────────────────────────────────────────────────────────────────────
+        true
+        gap>
+    ]]>
+</Log>
+    
+<Section Label="SpechtObjects">
+<Heading>Specht objects</Heading>
+
+<ManSection>
+    <Attr Name="SymmGens"
+          Arg="n" />
+<Description>
+Let <A>n</A> be a natural number. Then <C>SymmGens(n)</C> returns the corresponding transpositions <M>(i, i+1)</M> for <M>i \in \{1,2,\dots,n{-}1\}</M>.
+
+<Example>
+    <![CDATA[
+    gap> gens:= SymmGens(4);
+    [ (1,2), (2,3), (3,4) ]
+    ]]>
+</Example>
+
+</Description>
+</ManSection>
+
+
+
+<ManSection>
+    <Attr Name="SymmGroup"
+          Arg="n" />
+<Description>
+For any natural number <A>n</A>, we obtain the symmetric group <M>S_n</M> by passing <A>n</A> as an argument in <C>SymmGens(n)</C>.
+
+<Example>
+    <![CDATA[
+    gap> S4:= SymmGroup(4);
+    Group([ (1,2), (2,3), (3,4) ])
+    ]]>
+</Example>
+
+</Description>
+</ManSection>
+
+
+
+<ManSection>
+    <Attr Name="SymmRep"
+          Arg="lambda" />
+<Description>
+Let <M>\lambda</M> be a partition of a natural number <A>n</A>. Then <C>SymmGens(lambda)</C> returns the conjugacy class representative corresponding to <M>\lambda</M>.
+
+<Example>
+    <![CDATA[
+    gap> lambda:= [2,1,1];
+    [ 2, 1, 1 ]
+    gap> SymmRep(lambda);
+    (1,2)
+    ]]>
+</Example>
+
+</Description>
+</ManSection>
+
+
+<ManSection>
+    <Attr Name="WordPartition"
+          Arg="lambda" />
+<Description>
+For a partition <M>\lambda</M> of a natural number <A>n</A>, <C>WordPartition(lambda)</C> returns the corresponding canonical word made of letters <M>1,2,\dots,l</M>.
+
+<Example>
+    <![CDATA[
+    gap> lambda:= [2,1,1];
+    [ 2, 1, 1 ]
+    gap> w:= WordPartition(lambda);
+    [ 1, 1, 2, 3 ]
+    ]]>
+</Example>
+
+</Description>
+</ManSection>
+
+
+<ManSection>
+    <Attr Name="PartitionWord"
+          Arg="w" />
+<Description>
+Let <A>w</A> be any given word of length <A>n</A>. The canonical form of <A>w</A> can be obtained by arranging its letters in such a way that they are in a non-decreasing order. Let the canonical word be denoted by <M>w_\lambda</M>.
+
+Then there must be a partition <M>\lmabda\vdash n</M> such that <M>w_\lambda</M> can be obtained from it, i.e., in gerneral, <M>\lambda</M> is the shape of the word <A>w</A>. The shape of any given word <M>w</M> is obtained by <C>PartitionWord(w)</C>.
+
+<Example>
+    <![CDATA[
+    gap> w:= [1, 1, 2, 3];
+    [ 1, 1, 2, 3 ]
+    gap> lambda:= PartitionWord(w);
+    [ 2, 1, 1 ]
+    ]]>
+</Example>
+
+</Description>
+</ManSection>
+
+</Section>
+
+</Chapter>

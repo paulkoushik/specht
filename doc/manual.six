@@ -1,0 +1,89 @@
+#SIXFORMAT  GapDocGAP
+HELPBOOKINFOSIXTMP := rec(
+encoding := "UTF-8",
+bookname := "Circle",
+entries :=
+[ [ "Title page", ".", [ 0, 0, 0 ], 1, 1, "title page", "X7D2C85EC87DD46E5" ],
+  [ "Abstract", ".-1", [ 0, 0, 1 ], 39, 2, "abstract", "X7AA6C5737B711C89" ], 
+  [ "Copyright", ".-2", [ 0, 0, 2 ], 49, 2, "copyright", "X81488B807F2A1CF1" ]
+    , [ "Acknowledgements", ".-3", [ 0, 0, 3 ], 69, 2, "acknowledgements", 
+      "X82A988D47DFAFCFA" ], 
+  [ "Table of Contents", ".-4", [ 0, 0, 4 ], 76, 3, "table of contents", 
+      "X8537FEB07AF2BEC8" ], 
+  [ "\033[1X\033[33X\033[0;-2YIntroduction\033[133X\033[101X", "1", 
+      [ 1, 0, 0 ], 1, 4, "introduction", "X7DFB63A97E67C0A1" ], 
+  [ "\033[1X\033[33X\033[0;-2YGeneral aims\033[133X\033[101X", "1.1", 
+      [ 1, 1, 0 ], 4, 4, "general aims", "X8557083378F2A3B2" ], 
+  [ 
+      "\033[1X\033[33X\033[0;-2YInstallation and system requirements\033[133X\\
+033[101X", "1.2", [ 1, 2, 0 ], 62, 5, "installation and system requirements", 
+      "X7DB566D5785B7DBC" ], 
+  [ "\033[1X\033[33X\033[0;-2YImplementing circle objects\033[133X\033[101X", 
+      "2", [ 2, 0, 0 ], 1, 6, "implementing circle objects", 
+      "X8404D6997A466953" ], 
+  [ "\033[1X\033[33X\033[0;-2YFirst attempts\033[133X\033[101X", "2.1", 
+      [ 2, 1, 0 ], 9, 6, "first attempts", "X86492955868108EC" ], 
+  [ "\033[1X\033[33X\033[0;-2YDefining circle objects\033[133X\033[101X", 
+      "2.2", [ 2, 2, 0 ], 74, 7, "defining circle objects", 
+      "X852C1F3281137DD6" ], 
+  [ 
+      "\033[1X\033[33X\033[0;-2YInstalling operations for circle objects\033[133X\
+\033[101X", "2.3", [ 2, 3, 0 ], 259, 10, 
+      "installing operations for circle objects", "X85B1413E7FBC8ACB" ], 
+  [ 
+      "\033[1X\033[33X\033[0;-2Y\033[5XCircle\033[105X\033[101X\027\033[1X\027 fu\
+nctions\033[133X\033[101X", "3", [ 3, 0, 0 ], 1, 13, "circle functions", 
+      "X81CE94FA8343B1D8" ], 
+  [ "\033[1X\033[33X\033[0;-2YCircle objects\033[133X\033[101X", "3.1", 
+      [ 3, 1, 0 ], 22, 13, "circle objects", "X7E25EF1786B5F87C" ], 
+  [ 
+      "\033[1X\033[33X\033[0;-2YOperations with circle objects\033[133X\033[101X"
+        , "3.2", [ 3, 2, 0 ], 123, 15, "operations with circle objects", 
+      "X85ECB0B482AB3170" ], 
+  [ 
+      "\033[1X\033[33X\033[0;-2YConstruction of the adjoint semigroup and adjoint\
+ group\033[133X\033[101X", "3.3", [ 3, 3, 0 ], 263, 17, 
+      "construction of the adjoint semigroup and adjoint group", 
+      "X86F80DD8823966F7" ], 
+  [ "\033[1X\033[33X\033[0;-2YService functions\033[133X\033[101X", "3.4", 
+      [ 3, 4, 0 ], 489, 21, "service functions", "X80DFB24F8289C323" ], 
+  [ 
+      "\033[1X\033[33X\033[0;-2YA sample computation with \033[5XCircle\033[105X\\
+033[101X\027\033[1X\027\033[133X\033[101X", "4", [ 4, 0, 0 ], 1, 22, 
+      "a sample computation with circle", "X803553D8849F6D7A" ], 
+  [ "Bibliography", "bib", [ "Bib", 0, 0 ], 1, 24, "bibliography", 
+      "X7A6F98FD85F02BFE" ], 
+  [ "References", "bib", [ "Bib", 0, 0 ], 1, 24, "references", 
+      "X7A6F98FD85F02BFE" ], 
+  [ "Index", "ind", [ "Ind", 0, 0 ], 1, 25, "index", "X83A0356F839C696F" ], 
+  [ "\033[5XCircle\033[105X package", ".-1", [ 0, 0, 1 ], 39, 2, 
+      "circle package", "X7AA6C5737B711C89" ], 
+  [ "\033[2XCircleObject\033[102X", "3.1-1", [ 3, 1, 1 ], 30, 13, 
+      "circleobject", "X7F5C18AA7B433BDD" ], 
+  [ "\033[2XUnderlyingRingElement\033[102X", "3.1-2", [ 3, 1, 2 ], 45, 14, 
+      "underlyingringelement", "X874B2B2A7F5A9A78" ], 
+  [ "\033[2XIsCircleObject\033[102X", "3.1-3", [ 3, 1, 3 ], 60, 14, 
+      "iscircleobject", "X810FB77F860F888D" ], 
+  [ "\033[2XIsCircleObjectCollection\033[102X", "3.1-3", [ 3, 1, 3 ], 60, 14, 
+      "iscircleobjectcollection", "X810FB77F860F888D" ], 
+  [ "\033[2XIsPositionalObjectOneSlotRep\033[102X", "3.1-4", [ 3, 1, 4 ], 85, 
+      14, "ispositionalobjectoneslotrep", "X8469C7F67A8864B3" ], 
+  [ "\033[2XIsDefaultCircleObject\033[102X", "3.1-4", [ 3, 1, 4 ], 85, 14, 
+      "isdefaultcircleobject", "X8469C7F67A8864B3" ], 
+  [ "\033[2XCircleFamily\033[102X", "3.1-5", [ 3, 1, 5 ], 105, 15, 
+      "circlefamily", "X7F88A0017DC2E878" ], 
+  [ "\033[2XOne\033[102X", "3.2-1", [ 3, 2, 1 ], 126, 15, "one", 
+      "X8129A6877FFD804B" ], 
+  [ "\033[2XInverseOp\033[102X", "3.2-2", [ 3, 2, 2 ], 145, 15, "inverseop", 
+      "X82EC4F49877D6EB1" ], 
+  [ "\033[2XIsUnit\033[102X", "3.2-3", [ 3, 2, 3 ], 181, 16, "isunit", 
+      "X85CBFBAE78DE72E8" ], 
+  [ "\033[2XIsCircleUnit\033[102X", "3.2-4", [ 3, 2, 4 ], 221, 16, 
+      "iscircleunit", "X7CE7866F7CD00709" ], 
+  [ "\033[2XAdjointSemigroup\033[102X", "3.3-1", [ 3, 3, 1 ], 266, 17, 
+      "adjointsemigroup", "X83993FD0848D0C80" ], 
+  [ "\033[2XAdjointGroup\033[102X", "3.3-2", [ 3, 3, 2 ], 286, 18, 
+      "adjointgroup", "X868FAC7E87D11137" ], 
+  [ "\033[2XInfoCircle\033[102X", "3.4-1", [ 3, 4, 1 ], 492, 21, 
+      "infocircle", "X7A24C0997AC7C6A3" ] ]
+);

@@ -1,0 +1,513 @@
+  
+  [1X3 [33X[0;0Y[5XCircle[105X[101X[1X functions[133X[101X
+  
+  [33X[0;0YTo use the [5XCircle[105X package first you need to load it as follows:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XLoadPackage("circle");[127X[104X
+    [4X[28X-----------------------------------------------------------------------------[128X[104X
+    [4X[28XLoading  Circle 1.4.0 (Adjoint groups of finite rings)[128X[104X
+    [4X[28Xby Alexander Konovalov (http://www.cs.st-andrews.ac.uk/~alexk/) and[128X[104X
+    [4X[28X   Panagiotis Soules (psoules@math.uoa.gr).[128X[104X
+    [4X[28X-----------------------------------------------------------------------------[128X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28Xgap>[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNote  that  if  you  entered examples from the previous chapter, you need to
+  restart [5XGAP[105X before loading the [5XCircle[105X package.[133X
+  
+  
+  [1X3.1 [33X[0;0YCircle objects[133X[101X
+  
+  [33X[0;0YBecause  for  elements  of the ring [22XR[122X the ordinary multiplication is already
+  denoted  by  [10X*[110X,  for  the implementation of the circle multiplication in the
+  adjoint  semigroup  we  need  to wrap up ring elements as CircleObjects, for
+  which [10X*[110X is defined to be the circle multiplication.[133X
+  
+  [1X3.1-1 CircleObject[101X
+  
+  [33X[1;0Y[29X[2XCircleObject[102X( [3Xx[103X ) [32X attribute[133X
+  
+  [33X[0;0YLet  [3Xx[103X  be  a  ring  element. Then [10XCircleObject(x)[110X returns the corresponding
+  circle object. If [3Xx[103X lies in the family [10Xfam[110X, then [10XCircleObject(x)[110X lies in the
+  family [2XCircleFamily[102X ([14X3.1-5[114X), corresponding to the family [10Xfam[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27Xa := CircleObject( 2 );[127X[104X
+    [4X[28XCircleObject( 2 )[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-2 UnderlyingRingElement[101X
+  
+  [33X[1;0Y[29X[2XUnderlyingRingElement[102X( [3Xx[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the corresponding ring element for the circle object [3Xx[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27Xa := CircleObject( 2 );[127X[104X
+    [4X[28XCircleObject( 2 )[128X[104X
+    [4X[25Xgap>[125X [27XUnderlyingRingElement( a );    [127X[104X
+    [4X[28X2[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-3 IsCircleObject[101X
+  
+  [33X[1;0Y[29X[2XIsCircleObject[102X( [3Xx[103X ) [32X Category[133X
+  [33X[1;0Y[29X[2XIsCircleObjectCollection[102X( [3Xx[103X ) [32X Category[133X
+  
+  [33X[0;0YAn  object [3Xx[103X lies in the category [10XIsCircleObject[110X if and only if it lies in a
+  family  constructed  by  [2XCircleFamily[102X  ([14X3.1-5[114X).  Since circle objects can be
+  multiplied  via  [10X*[110X with elements in their family, and we need operations [10XOne[110X
+  and   [10XInverse[110X  to  deal  with  groups  they  generate,  circle  objects  are
+  implemented in the category [10XIsMultiplicativeElementWithInverse[110X. A collection
+  of  circle objects (e.g. adjoint semigroup or adjoint group) will lie in the
+  category [10XIsCircleObjectCollection[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XIsCircleObject( 2 ); IsCircleObject( CircleObject( 2 ) );            [127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsMultiplicativeElementWithInverse( CircleObject( 2 ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCircleObjectCollection( [ CircleObject(0), CircleObject(2) ] );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-4 IsPositionalObjectOneSlotRep[101X
+  
+  [33X[1;0Y[29X[2XIsPositionalObjectOneSlotRep[102X( [3Xx[103X ) [32X Representation[133X
+  [33X[1;0Y[29X[2XIsDefaultCircleObject[102X( [3Xx[103X ) [32X Representation[133X
+  
+  [33X[0;0YTo  store  the  corresponding  circle  object,  we  need  only  to store the
+  underlying  ring  element.  Since this is quite common situation, we defined
+  the  representation  [10XIsPositionalObjectOneSlotRep[110X  for  a more general case.
+  Then     we     defined    [10XIsDefaultCircleObject[110X    as    a    synonym    of
+  [10XIsPositionalObjectOneSlotRep[110X for objects in [2XIsCircleObject[102X ([14X3.1-3[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XIsPositionalObjectOneSlotRep( CircleObject( 2 ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsDefaultCircleObject( CircleObject( 2 ) );                          [127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-5 CircleFamily[101X
+  
+  [33X[1;0Y[29X[2XCircleFamily[102X( [3Xfam[103X ) [32X attribute[133X
+  
+  [33X[0;0Y[10XCircleFamily(fam)[110X   is  a  family,  elements  of  which  are  in  one-to-one
+  correspondence  with  elements  of  the  family  [3Xfam[103X,  but  with  the circle
+  multiplication  as  an  infix  multiplication. That is, for [22Xx[122X, [22Xy[122X in [3Xfam[103X, the
+  product  of their images in the [10XCircleFamily(fam)[110X will be the image of [22Xx + y
+  +  x y[122X. The relation between these families is demonstrated by the following
+  equality:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XFamilyObj( CircleObject ( 2 ) ) = CircleFamily( FamilyObj( 2 ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X3.2 [33X[0;0YOperations with circle objects[133X[101X
+  
+  [1X3.2-1 One[101X
+  
+  [33X[1;0Y[29X[2XOne[102X( [3Xx[103X ) [32X operation[133X
+  
+  [33X[0;0YThis  operation  returns  the  multiplicative neutral element for the circle
+  object  [3Xx[103X.  The  result  is  the circle object corresponding to the additive
+  neutral element of the appropriate ring.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XOne( CircleObject( 5 ) );[127X[104X
+    [4X[28XCircleObject( 0 )[128X[104X
+    [4X[25Xgap>[125X [27XOne( CircleObject( 5 ) ) = CircleObject( Zero( 5 ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XOne( CircleObject( [ [ 1, 1 ],[ 0, 1 ] ] ) );[127X[104X
+    [4X[28XCircleObject( [ [ 0, 0 ], [ 0, 0 ] ] )[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X3.2-2 InverseOp[101X
+  
+  [33X[1;0Y[29X[2XInverseOp[102X( [3Xx[103X ) [32X operation[133X
+  
+  [33X[0;0YFor  a circle object [3Xx[103X, returns the multiplicative inverse of [3Xx[103X with respect
+  to  the  circle  multiplication;  if  such  one  does not exist then [9Xfail[109X is
+  returned.[133X
+  
+  [33X[0;0YIn our implementation we assume that the underlying ring is a subring of the
+  ring  with one, thus, if the circle inverse for an element [22Xx[122X exists, than it
+  can be computed as [22X-x(1+x)^-1[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XCircleObject( -2 )^-1;                        [127X[104X
+    [4X[28XCircleObject( -2 )[128X[104X
+    [4X[25Xgap>[125X [27XCircleObject( 2 )^-1; [127X[104X
+    [4X[28XCircleObject( -2/3 )[128X[104X
+    [4X[25Xgap>[125X [27XCircleObject( -2 )*CircleObject( -2 )^-1;[127X[104X
+    [4X[28XCircleObject( 0 )[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27Xm := CircleObject( [ [ 1, 1 ], [ 0, 1 ] ] );   [127X[104X
+    [4X[28XCircleObject( [ [ 1, 1 ], [ 0, 1 ] ] )[128X[104X
+    [4X[25Xgap>[125X [27Xm^-1;    [127X[104X
+    [4X[28XCircleObject( [ [ -1/2, -1/4 ], [ 0, -1/2 ] ] )[128X[104X
+    [4X[25Xgap>[125X [27Xm * m^-1;[127X[104X
+    [4X[28XCircleObject( [ [ 0, 0 ], [ 0, 0 ] ] )[128X[104X
+    [4X[25Xgap>[125X [27XCircleObject( [ [ 0, 1 ], [ 1, 0 ] ] )^-1; [127X[104X
+    [4X[28Xfail[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X3.2-3 IsUnit[101X
+  
+  [33X[1;0Y[29X[2XIsUnit[102X( [[3XR[103X, ][3Xx[103X ) [32X operation[133X
+  
+  [33X[0;0YLet [3Xx[103X be a circle object corresponding to an element of the ring [3XR[103X. Then the
+  operation  [10XIsUnit[110X  returns [10Xtrue[110X, if [3Xx[103X is invertible in [3XR[103X with respect to the
+  circle multiplication, and [10Xfalse[110X otherwise.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XIsUnit( Integers, CircleObject( -2 ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsUnit( Integers, CircleObject( 2 ) ); [127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsUnit( Rationals, CircleObject( 2 ) );        [127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsUnit( ZmodnZ(8), CircleObject( ZmodnZObj(2,8) ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xm := CircleObject( [ [ 1, 1 ],[ 0, 1 ] ] );;[127X[104X
+    [4X[25Xgap>[125X [27XIsUnit( FullMatrixAlgebra( Rationals, 2 ), m );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIf  the  first argument is omitted, the result will be returned with respect
+  to the default ring of the circle object [3Xx[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XIsUnit( CircleObject( -2 ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsUnit( CircleObject( 2 ) ); [127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsUnit( CircleObject( ZmodnZObj(2,8) ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsUnit( CircleObject( [ [ 1, 1 ],[ 0, 1 ] ] ) );                                    [127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X3.2-4 IsCircleUnit[101X
+  
+  [33X[1;0Y[29X[2XIsCircleUnit[102X( [[3XR[103X, ][3Xx[103X ) [32X operation[133X
+  
+  [33X[0;0YLet  [3Xx[103X  be  an  element  of the ring [3XR[103X. Then [10XIsCircleUnit( R, x )[110X determines
+  whether [3Xx[103X is invertible in [3XR[103X with respect to the circle multilpication. This
+  is  equivalent  to the condition that 1+[3Xx[103X is a unit in [3XR[103X with respect to the
+  ordinary multiplication.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XIsCircleUnit( Integers, -2 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCircleUnit( Integers, 2 ); [127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsCircleUnit( Rationals, 2 );          [127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCircleUnit( ZmodnZ(8), ZmodnZObj(2,8) ); [127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xm := [ [ 1, 1 ],[ 0, 1 ] ];                [127X[104X
+    [4X[28X[ [ 1, 1 ], [ 0, 1 ] ][128X[104X
+    [4X[25Xgap>[125X [27XIsCircleUnit( FullMatrixAlgebra(Rationals,2), m );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIf  the  first argument is omitted, the result will be returned with respect
+  to the default ring of [3Xx[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XIsCircleUnit( -2 );                               [127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCircleUnit( 2 ); [127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsCircleUnit( ZmodnZObj(2,8) );           [127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCircleUnit( [ [ 1, 1 ],[ 0, 1 ] ] ); [127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X3.3 [33X[0;0YConstruction of the adjoint semigroup and adjoint group[133X[101X
+  
+  [1X3.3-1 AdjointSemigroup[101X
+  
+  [33X[1;0Y[29X[2XAdjointSemigroup[102X( [3XR[103X ) [32X attribute[133X
+  
+  [33X[0;0YIf  [3XR[103X is a finite ring then [10XAdjointSemigroup([3XR[103X[10X)[110X will return the monoid which
+  is formed by all elements of [3XR[103X with respect to the circle multiplication.[133X
+  
+  [33X[0;0YThe implementation is rather straightforward and was added to provide a link
+  to  the [5XGAP[105X functionality for semigroups. It assumes that the enumaration of
+  all elements of the ring [3XR[103X is feasible.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XR:=Ring( [ ZmodnZObj(2,8) ] );[127X[104X
+    [4X[28X<ring with 1 generators>[128X[104X
+    [4X[25Xgap>[125X [27XS:=AdjointSemigroup(R);[127X[104X
+    [4X[28X<monoid with 4 generators>[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [1X3.3-2 AdjointGroup[101X
+  
+  [33X[1;0Y[29X[2XAdjointGroup[102X( [3XR[103X ) [32X attribute[133X
+  
+  [33X[0;0YIf  [3XR[103X  is  a  finite  radical  algebra  then [10XAdjointGroup([3XR[103X[10X)[110X will return the
+  adjoint group of [3XR[103X, given as a group generated by a set of circle objects.[133X
+  
+  [33X[0;0YTo  compute  the  adjoint group of a finite radical algebra, [5XCircle[105X uses the
+  fact that all elements of a radical algebra form a group with respect to the
+  circle  multiplication.  Thus,  the  adjoint  group  of  [3XR[103X  coincides with [3XR[103X
+  elementwise, and we can randomly select an appropriate set of generators for
+  the adjoint group.[133X
+  
+  [33X[0;0YThe  warning  is displayed by [10XIsGeneratorsOfMagmaWithInverses[110X method defined
+  in [11Xgap4r4/lib/grp.gi[111X and may be ignored.[133X
+  
+  [33X[0;0Y[12XWARNINGS:[112X[133X
+  
+  [33X[0;0Y1.  The  set  of  generators  of  the returned group is not required to be a
+  generating set of minimal possible order.[133X
+  
+  [33X[0;0Y2.  [10XAdjointGroup[110X  is  stored as an attribute of [3XR[103X, so for the same copy of [3XR[103X
+  calling  it  again  you  will  get  the  same result. But if you will create
+  another copy of [3XR[103X in the future, the output may differ because of the random
+  selection  of  generators. If you want to have the same generating set, next
+  time you should construct a group immediately specifying circle objects that
+  generate it.[133X
+  
+  [33X[0;0Y3. In most cases, to investigate some properties of the adjoint group, it is
+  necessary  first  to  convert  it to an isomorphic permutation group or to a
+  PcGroup.[133X
+  
+  [33X[0;0YFor  example,  we can create the following commutative 2-dimensional radical
+  algebra of order 4 over the field of two elements, and show that its adjoint
+  group is a cyclic group of order 4:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27Xx:=[ [ 0, 1, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 1 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27XR := Algebra( GF(2), [ One(GF(2))*x ] );  [127X[104X
+    [4X[28X<algebra over GF(2), with 1 generators>[128X[104X
+    [4X[25Xgap>[125X [27XRadicalOfAlgebra( R ) = R;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDimension(R);[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XG := AdjointGroup( R );;[127X[104X
+    [4X[25Xgap>[125X [27XSize( R ) = Size( G );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XStructureDescription( G );[127X[104X
+    [4X[28X"C4"[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIn  the  following  example  we  construct  a  non-commutative 3-dimensional
+  radical  algebra  of order 8 over the field of two elements, and demonstrate
+  that its adjoint group is the dihedral group of order 8:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27Xx:=[ [ 0, 1, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0 ],     [127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xy:=[ [ 0, 0, 0 ],     [127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 1 ],  [127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27XR := Algebra( GF(2), One(GF(2))*[x,y] );  [127X[104X
+    [4X[28X<algebra over GF(2), with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XRadicalOfAlgebra(R) = R;                [127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDimension(R);[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XG := AdjointGroup( R );[127X[104X
+    [4X[28X<group of size 8 with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XStructureDescription( G );[127X[104X
+    [4X[28X"D8"[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIf  the  ring  [3XR[103X  is  not  a  radical  algebra, then [5XCircle[105X will use another
+  approach. We will enumerate all elements of the ring [3XR[103X and select those that
+  are  units  with  respect  to  the circle multiplication. Then we will use a
+  random  approach  similar  to  the case of the radical algebra, to find some
+  generating  set  of  the  adjoint group. Again, all warnings 1-3 above refer
+  also to this case.[133X
+  
+  [33X[0;0YOf  course,  enumeration  of  all  elements of [3XR[103X should be feasible for this
+  computation. In the following example we demonstrate how it works for rings,
+  generated by residue classes:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XR := Ring( [ ZmodnZObj(2,8) ] );[127X[104X
+    [4X[28X<ring with 1 generators>[128X[104X
+    [4X[25Xgap>[125X [27XG := AdjointGroup( R );[127X[104X
+    [4X[28X<group of size 4 with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XStructureDescription( G );[127X[104X
+    [4X[28X"C2 x C2"[128X[104X
+    [4X[25Xgap>[125X [27XR := Ring( [ ZmodnZObj(2,256) ] );   [127X[104X
+    [4X[28X<ring with 1 generators>[128X[104X
+    [4X[25Xgap>[125X [27XG := AdjointGroup( R );;[127X[104X
+    [4X[25Xgap>[125X [27XStructureDescription( G );[127X[104X
+    [4X[28X"C64 x C2"[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YDue  to  the  [2XAdjointSemigroup[102X ([14X3.3-1[114X), there is also another way to compute
+  the  adjoint  group  of  a ring [22XR[122X by means of the computation of its adjoint
+  semigroup  [22XS(R)[122X and taking the Green's [22XH[122X-class of the multiplicative neutral
+  element of [22XS(R)[122X. Let us repeat the last example in this way:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XR := Ring( [ ZmodnZObj(2,256) ] );  [127X[104X
+    [4X[28X<ring with 1 generators>[128X[104X
+    [4X[25Xgap>[125X [27XS := AdjointSemigroup( R );[127X[104X
+    [4X[28X<monoid with 128 generators>[128X[104X
+    [4X[25Xgap>[125X [27XH := GreensHClassOfElement(S,One(S));[127X[104X
+    [4X[28X<Green's H-class: <object>>[128X[104X
+    [4X[25Xgap>[125X [27XG:=AsGroup(H);[127X[104X
+    [4X[28X<group of size 128 with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XStructureDescription(G);[127X[104X
+    [4X[28X"C64 x C2"[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YHowever,  the  conversion  of the Green's [22XH[122X-class to the group may take some
+  time which may vary dependently on the particular ring in question, and will
+  also     display     a     lot     of    warnings    about    the    default
+  [10XIsGeneratorsOfMagmaWithInverses[110X method, so we did not implemented this as as
+  standard  method.  In  the  following  example  the  method based on Green's
+  [22XH[122X-class  is  much  slower  than  an  application of earlier described random
+  approach (20s vs 10ms):[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XR := Ring( [ ZmodnZObj(2,256) ] );   [127X[104X
+    [4X[28X<ring with 1 generators>[128X[104X
+    [4X[25Xgap>[125X [27XAdjointGroup(R);;[127X[104X
+    [4X[25Xgap>[125X [27XR := Ring( [ ZmodnZObj(2,256) ] );[127X[104X
+    [4X[28X<ring with 1 generators>[128X[104X
+    [4X[25Xgap>[125X [27XS:=AdjointSemigroup(R); [127X[104X
+    [4X[28X<monoid with 128 generators>[128X[104X
+    [4X[25Xgap>[125X [27XAsGroup(GreensHClassOfElement(S,One(S))); [127X[104X
+    [4X[28X<group of size 128 with 2 generators>[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YFinally,  note  that  if [3XR[103X has a unity [22X1[122X, then the set [22X1+R^ad[122X, where [22XR^ad[122X is
+  the  adjoint  semigroup  of  [3XR[103X,  coincides with the multiplicative semigroup
+  [22XR^mult[122X  of  [22XR[122X,  and the map [22Xr ↦ (1+r)[122X for [22Xr[122X in [22XR[122X is an isomorphism from [22XR^ad[122X
+  onto [22XR^mult[122X.[133X
+  
+  [33X[0;0YSimilarly,  the  set  [22X1+R^*[122X,  where [22XR^*[122X is the adjoint group of [3XR[103X, coincides
+  with  the unit group of [22XR[122X, which we denote [22XU(R)[122X, and the map [22Xr ↦ (1+r)[122X for [22Xr[122X
+  in [22XR[122X is an isomorphism from [22XR^*[122X onto [22XU(R)[122X.[133X
+  
+  [33X[0;0YWe demonstrate this isomorphism using the following example.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "laguna", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XFG := GroupRing( GF(2), DihedralGroup(8) );[127X[104X
+    [4X[28X<algebra-with-one over GF(2), with 3 generators>[128X[104X
+    [4X[25Xgap>[125X [27XR := AugmentationIdeal( FG );;[127X[104X
+    [4X[25Xgap>[125X [27XG := AdjointGroup( R );;[127X[104X
+    [4X[25Xgap>[125X [27XIdGroup( G );[127X[104X
+    [4X[28X[ 128, 170 ][128X[104X
+    [4X[25Xgap>[125X [27XIdGroup( Units( FG ) );[127X[104X
+    [4X[28X#I  LAGUNA package: Computing the unit group ...[128X[104X
+    [4X[28X[ 128, 170 ][128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThus,  dependently  on the ring [10XR[110X in question, it might be possible that you
+  can compute much faster its unit group using [10XUnits(R)[110X than its adjoint group
+  using  [10XAdjointGroup(R)[110X.  This  is  why  in  an attempt of computation of the
+  adjoint group of the ring with one a warning message will be displayed:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XSize( AdjointGroup( GroupRing( GF(2), DihedralGroup(8) ) ) );[127X[104X
+    [4X[28X[128X[104X
+    [4X[28XWARNING: usage of AdjointGroup for associative ring <R> with one!!! [128X[104X
+    [4X[28XIn this case the adjoint group is isomorphic to the unit group [128X[104X
+    [4X[28XUnits(<R>), which possibly may be computed faster!!! [128X[104X
+    [4X[28X[128X[104X
+    [4X[28X128[128X[104X
+    [4X[25Xgap>[125X [27XSize( AdjointGroup( Integers mod 11 ) );                  [127X[104X
+    [4X[28X[128X[104X
+    [4X[28XWARNING: usage of AdjointGroup for associative ring <R> with one!!! [128X[104X
+    [4X[28XIn this case the adjoint group is isomorphic to the unit group [128X[104X
+    [4X[28XUnits(<R>), which possibly may be computed faster!!! [128X[104X
+    [4X[28X[128X[104X
+    [4X[28X10[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIf [3XR[103X is infinite, an error message will appear, telling that [5XCircle[105X does not
+  provide methods to deal with infinite rings.[133X
+  
+  
+  [1X3.4 [33X[0;0YService functions[133X[101X
+  
+  [1X3.4-1 InfoCircle[101X
+  
+  [33X[1;0Y[29X[2XInfoCircle[102X[32X info class[133X
+  
+  [33X[0;0Y[10XInfoCircle[110X is a special Info class for [5XCircle[105X algorithms. It has 2 levels: 0
+  (default)    and   1.   To   change   info   level   to   [10Xk[110X,   use   command
+  [10XSetInfoLevel(InfoCircle, k)[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XSetInfoLevel( InfoCircle, 1 );[127X[104X
+    [4X[25Xgap>[125X [27XSetInfoLevel(InfoCircle,1);[127X[104X
+    [4X[25Xgap>[125X [27XR := Ring( [ ZmodnZObj(2,8) ]);[127X[104X
+    [4X[28X<ring with 1 generators>[128X[104X
+    [4X[25Xgap>[125X [27XG := AdjointGroup( R );[127X[104X
+    [4X[28X#I  Circle : <R> is not a radical algebra, computing circle units ...[128X[104X
+    [4X[28X#I  Circle : searching generators for adjoint group ...[128X[104X
+    [4X[28X<group of size 4 with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XSetInfoLevel( InfoCircle, 0 );[127X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  

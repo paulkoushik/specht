@@ -1,0 +1,27 @@
+\contentsline {chapter}{\numberline {1}\leavevmode {\color {Chapter }Introduction}}{4}{chapter.1}
+\contentsline {section}{\numberline {1.1}\leavevmode {\color {Chapter }General aims}}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}\leavevmode {\color {Chapter }Installation and system requirements}}{5}{section.1.2}
+\contentsline {chapter}{\numberline {2}\leavevmode {\color {Chapter }Implementing circle objects}}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}\leavevmode {\color {Chapter }First attempts}}{6}{section.2.1}
+\contentsline {section}{\numberline {2.2}\leavevmode {\color {Chapter }Defining circle objects}}{7}{section.2.2}
+\contentsline {section}{\numberline {2.3}\leavevmode {\color {Chapter }Installing operations for circle objects}}{10}{section.2.3}
+\contentsline {chapter}{\numberline {3}\leavevmode {\color {Chapter }\textsf {Circle} functions}}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}\leavevmode {\color {Chapter }Circle objects}}{13}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}\leavevmode {\color {Chapter }CircleObject}}{13}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}\leavevmode {\color {Chapter }UnderlyingRingElement}}{14}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}\leavevmode {\color {Chapter }IsCircleObject}}{14}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}\leavevmode {\color {Chapter }IsPositionalObjectOneSlotRep}}{14}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}\leavevmode {\color {Chapter }CircleFamily}}{15}{subsection.3.1.5}
+\contentsline {section}{\numberline {3.2}\leavevmode {\color {Chapter }Operations with circle objects}}{15}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}\leavevmode {\color {Chapter }One}}{15}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}\leavevmode {\color {Chapter }InverseOp}}{15}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}\leavevmode {\color {Chapter }IsUnit}}{16}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}\leavevmode {\color {Chapter }IsCircleUnit}}{16}{subsection.3.2.4}
+\contentsline {section}{\numberline {3.3}\leavevmode {\color {Chapter }Construction of the adjoint semigroup and adjoint group}}{17}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}\leavevmode {\color {Chapter }AdjointSemigroup}}{17}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}\leavevmode {\color {Chapter }AdjointGroup}}{18}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}\leavevmode {\color {Chapter }Service functions}}{21}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}\leavevmode {\color {Chapter }InfoCircle}}{21}{subsection.3.4.1}
+\contentsline {chapter}{\numberline {4}\leavevmode {\color {Chapter }A sample computation with \textsf {Circle}}}{22}{chapter.4}
+\contentsline {chapter}{References}{24}{chapter*.5}
+\contentsline {chapter}{Index}{25}{section*.6}

@@ -1,0 +1,25 @@
+  
+  
+  [1XReferences[101X
+  
+  [[20XAK00[120X] [16XAmberg, B. and Kazarin, L. S.[116X, [17XOn the adjoint group of a finite nilpotent p-algebra[117X, [18XJ. Math. Sci. (New York)[118X, [19X102[119X, 3 (2000), 3979--3997.
+  
+  [[20XAS01[120X]  [16XAmberg,  B.  and Sysak, Y. P.[116X, [17XRadical rings and their adjoint groups[117X, in Topics in infinite groups, Dept. Math., Seconda Univ. Napoli, Caserta, Quad.
+  Mat., [19X8[119X (2001), 21--43.
+  
+  [[20XAS02[120X] [16XAmberg, B. and Sysak, Y. P.[116X, [17XRadical rings with soluble adjoint groups[117X, [18XJ. Algebra[118X, [19X247[119X, 2 (2002), 692--702.
+  
+  [[20XAS04[120X] [16XAmberg, B. and Sysak, Y. P.[116X, [17XAssociative rings with metabelian adjoint group[117X, [18XJ. Algebra[118X, [19X277[119X, 2 (2004), 456--473.
+  
+  [[20XAI97[120X] [16XArtemovych, O. D. and Ishchuk, Y. B.[116X, [17XOn semiperfect rings determined by adjoint groups[117X, [18XMat. Stud.[118X, [19X8[119X, 2 (1997), 162--170, 237.
+  
+  [[20XGor95[120X] [16XGorlov, V. O.[116X, [17XFinite nilpotent algebras with a metacyclic quasiregular group[117X, [18XUkra\"\i n. Mat. Zh.[118X, [19X47[119X, 10 (1995), 1426--1431.
+  
+  [[20XKS04[120X]  [16XKazarin,  L.  S. and Soules, P.[116X, [17XFinite nilpotent p-algebras whose adjoint group has three generators[117X, [18XJP J. Algebra Number Theory Appl.[118X, [19X4[119X, 1 (2004),
+  113--127.
+  
+  [[20XPS97[120X] [16XPopovich, S. V. and Sysak, Y. P.[116X, [17XRadical algebras whose subgroups of adjoint groups are subalgebras[117X, [18XUkra\"\i n. Mat. Zh.[118X, [19X49[119X, 12 (1997), 1646--1652.
+  
+  
+  
+  [32X

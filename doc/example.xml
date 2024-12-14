@@ -1,0 +1,114 @@
+<Chapter Label="Example">
+<Heading>A sample computation with &Circle;</Heading>
+
+Here we give an example to give the reader an idea
+what &Circle; is able to compute.
+<P/>
+
+It was proved in <Cite Key="Kazarin-Soules-2004" /> that 
+if <M>R</M> is a finite nilpotent two-generated algebra over a 
+field of characteristic <M>p>3</M> whose adjoint group has at 
+most three generators, then the dimension of <M>R</M>
+is not greater than 9. Also, an example 
+of the 6-dimensional such algebra with the 3-generated adjoint 
+group was given there. We will construct the algebra from this 
+example and investigate it using &Circle;. First we create two 
+matrices that determine its generators:
+
+<Example>
+<![CDATA[
+gap> x:=[ [ 0, 1, 0, 0, 0, 0, 0 ],
+>         [ 0, 0, 0, 1, 0, 0, 0 ],
+>         [ 0, 0, 0, 0, 1, 0, 0 ],
+>         [ 0, 0, 0, 0, 0, 0, 1 ],
+>         [ 0, 0, 0, 0, 0, 1, 0 ],
+>         [ 0, 0, 0, 0, 0, 0, 0 ],
+>         [ 0, 0, 0, 0, 0, 0, 0 ] ];;
+gap> y:=[ [ 0, 0, 1, 0, 0, 0, 0 ],
+>         [ 0, 0, 0, 0,-1, 0, 0 ],
+>         [ 0, 0, 0, 1, 0, 1, 0 ],
+>         [ 0, 0, 0, 0, 0, 1, 0 ],
+>         [ 0, 0, 0, 0, 0, 0,-1 ],
+>         [ 0, 0, 0, 0, 0, 0, 0 ],
+>         [ 0, 0, 0, 0, 0, 0, 0 ] ];;
+]]>
+</Example>
+
+Now we construct this algebra in characteristic five and 
+check its basic properties:
+
+<Example>
+<![CDATA[
+gap> R := Algebra( GF(5), One(GF(5))*[x,y] );
+<algebra over GF(5), with 2 generators>
+gap> Dimension( R );
+6
+gap> Size( R );
+15625
+gap> RadicalOfAlgebra( R ) = R;
+true
+]]>
+</Example>
+
+Then we compute the adjoint group of <C>R</C>:
+ 
+<Example>
+<![CDATA[
+gap> G := AdjointGroup( R );;
+gap> Size(G);
+15625
+]]>
+</Example>
+
+Now we can find the generating set of minimal possible order for 
+the group <C>G</C>, and check that <C>G</C> it is 3-generated. 
+To do this, first we need to convert it to the isomorphic PcGroup:
+
+<Example>
+<![CDATA[
+gap> f := IsomorphismPcGroup( G );;
+gap> H := Image( f );
+Group([ f1, f2, f3, f4, f5, f6 ])
+gap> gens := MinimalGeneratingSet( H );;
+gap> Length( gens );
+3
+]]>
+</Example> 
+
+One can also use <C>UnderlyingRingElement(PreImage(f,x))</C> to
+find the preimage of <C>x</C> in <C>G</C>.
+<P/>
+
+It appears that the adjoint group of the algebra from example 
+will be 3-generated in characteristic 3 as well:
+
+<Example>
+<![CDATA[
+gap> R := Algebra( GF(3), One(GF(3))*[x,y] );
+<algebra over GF(3), with 2 generators>
+gap> G := AdjointGroup( R );;
+gap> H := Image( IsomorphismPcGroup( G ) );
+Group([ f1, f2, f3, f4, f5, f6 ])
+gap> Length( MinimalGeneratingSet( H ) );
+3
+]]>
+</Example> 
+
+But this is not the case in characteristic 2, where 
+the adjoint group is 4-generated:
+
+<Example>
+<![CDATA[
+gap> R := Algebra( GF(2), One(GF(2))*[x,y] );
+<algebra over GF(2), with 2 generators>
+gap> G := AdjointGroup( R );;
+gap> Size(G);
+64
+gap> H := Image( IsomorphismPcGroup( G ) );
+Group([ f1, f2, f3, f4, f5, f6 ])
+gap> Length( MinimalGeneratingSet( H ) );
+4
+]]>
+</Example> 
+ 
+</Chapter>

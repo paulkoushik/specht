@@ -1,0 +1,106 @@
+  
+  [1X2 [33X[0;0YSymmetric Groups[133X[101X
+  
+  [33X[0;0YTo  use  the  UNKNOWNEntity(Specht)  package  first  you  need to load it as
+  follows:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X    [128X[104X
+    [4X[28X        gap> LoadPackage("Specht");[128X[104X
+    [4X[28X        ────────────────────────────────────────────────────────────────────────────[128X[104X
+    [4X[28X        Loading  Specht 1.0 (Construction of Specht modules for Monomial Groups)[128X[104X
+    [4X[28X        by Koushik Paul (koushik1995.paul@gmail.com) and[128X[104X
+    [4X[28X           Goetz Pfeiffer (goetz.pfeiffer@universityofgalway.ie).[128X[104X
+    [4X[28X        maintained by:[128X[104X
+    [4X[28X           Koushik Paul (koushik1995.paul@gmail.com).[128X[104X
+    [4X[28X        Homepage: https://gap-packages.github.io/specht[128X[104X
+    [4X[28X        Report issues at https://github.com/gap-packages/specht/issues[128X[104X
+    [4X[28X        ────────────────────────────────────────────────────────────────────────────[128X[104X
+    [4X[28X        true[128X[104X
+    [4X[28X        gap>[128X[104X
+    [4X[28X    [128X[104X
+  [4X[32X[104X
+  
+  
+  [1X2.1 [33X[0;0YSpecht objects[133X[101X
+  
+  [1X2.1-1 SymmGens[101X
+  
+  [33X[1;0Y[29X[2XSymmGens[102X( [3Xn[103X ) [32X attribute[133X
+  
+  [33X[0;0YLet  [3Xn[103X  be  a  natural  number.  Then  [10XSymmGens(n)[110X returns the corresponding
+  transpositions [22X(i, i+1)[122X for [22Xi ∈ {1,2,dots,n-1}[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X    [128X[104X
+    [4X[28X    gap> gens:= SymmGens(4);[128X[104X
+    [4X[28X    [ (1,2), (2,3), (3,4) ][128X[104X
+    [4X[28X    [128X[104X
+  [4X[32X[104X
+  
+  [1X2.1-2 SymmGroup[101X
+  
+  [33X[1;0Y[29X[2XSymmGroup[102X( [3Xn[103X ) [32X attribute[133X
+  
+  [33X[0;0YFor  any natural number [3Xn[103X, we obtain the symmetric group [22XS_n[122X by passing [3Xn[103X as
+  an argument in [10XSymmGens(n)[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X    [128X[104X
+    [4X[28X    gap> S4:= SymmGroup(4);[128X[104X
+    [4X[28X    Group([ (1,2), (2,3), (3,4) ])[128X[104X
+    [4X[28X    [128X[104X
+  [4X[32X[104X
+  
+  [1X2.1-3 SymmRep[101X
+  
+  [33X[1;0Y[29X[2XSymmRep[102X( [3Xlambda[103X ) [32X attribute[133X
+  
+  [33X[0;0YLet  [22Xλ[122X  be  a partition of a natural number [3Xn[103X. Then [10XSymmGens(lambda)[110X returns
+  the conjugacy class representative corresponding to [22Xλ[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X    [128X[104X
+    [4X[28X    gap> lambda:= [2,1,1];[128X[104X
+    [4X[28X    [ 2, 1, 1 ][128X[104X
+    [4X[28X    gap> SymmRep(lambda);[128X[104X
+    [4X[28X    (1,2)[128X[104X
+    [4X[28X    [128X[104X
+  [4X[32X[104X
+  
+  [1X2.1-4 WordPartition[101X
+  
+  [33X[1;0Y[29X[2XWordPartition[102X( [3Xlambda[103X ) [32X attribute[133X
+  
+  [33X[0;0YFor  a  partition [22Xλ[122X of a natural number [3Xn[103X, [10XWordPartition(lambda)[110X returns the
+  corresponding canonical word made of letters [22X1,2,dots,l[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X    [128X[104X
+    [4X[28X    gap> lambda:= [2,1,1];[128X[104X
+    [4X[28X    [ 2, 1, 1 ][128X[104X
+    [4X[28X    gap> w:= WordPartition(lambda);[128X[104X
+    [4X[28X    [ 1, 1, 2, 3 ][128X[104X
+    [4X[28X    [128X[104X
+  [4X[32X[104X
+  
+  [1X2.1-5 PartitionWord[101X
+  
+  [33X[1;0Y[29X[2XPartitionWord[102X( [3Xw[103X ) [32X attribute[133X
+  
+  [33X[0;0YLet [3Xw[103X be any given word of length [3Xn[103X. The canonical form of [3Xw[103X can be obtained
+  by  arranging  its  letters  in such a way that they are in a non-decreasing
+  order.  Let  the  canonical  word  be  denoted  by [22Xw_λ[122X. Then there must be a
+  partition  [22Xlmabda⊢  n[122X  such  that  [22Xw_λ[122X  can  be  obtained  from it, i.e., in
+  gerneral,  [22Xλ[122X  is  the  shape of the word [3Xw[103X. The shape of any given word [22Xw[122X is
+  obtained by [10XPartitionWord(w)[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X    [128X[104X
+    [4X[28X    gap> w:= [1, 1, 2, 3];[128X[104X
+    [4X[28X    [ 1, 1, 2, 3 ][128X[104X
+    [4X[28X    gap> lambda:= PartitionWord(w);[128X[104X
+    [4X[28X    [ 2, 1, 1 ][128X[104X
+    [4X[28X    [128X[104X
+  [4X[32X[104X
+  

@@ -1,0 +1,109 @@
+  
+  [1X4 [33X[0;0YA sample computation with [5XCircle[105X[101X[1X[133X[101X
+  
+  [33X[0;0YHere  we  give  an example to give the reader an idea what [5XCircle[105X is able to
+  compute.[133X
+  
+  [33X[0;0YIt  was  proved  in  [KS04]  that  if  [22XR[122X is a finite nilpotent two-generated
+  algebra  over  a field of characteristic [22Xp>3[122X whose adjoint group has at most
+  three  generators,  then  the dimension of [22XR[122X is not greater than 9. Also, an
+  example of the 6-dimensional such algebra with the 3-generated adjoint group
+  was  given  there.  We  will  construct  the  algebra  from this example and
+  investigate it using [5XCircle[105X. First we create two matrices that determine its
+  generators:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27Xx:=[ [ 0, 1, 0, 0, 0, 0, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 1, 0, 0, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 0, 1, 0, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 0, 0, 0, 1 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 0, 0, 1, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 0, 0, 0, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 0, 0, 0, 0 ] ];;[127X[104X
+    [4X[25Xgap>[125X [27Xy:=[ [ 0, 0, 1, 0, 0, 0, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 0,-1, 0, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 1, 0, 1, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 0, 0, 1, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 0, 0, 0,-1 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 0, 0, 0, 0 ],[127X[104X
+    [4X[25X>[125X [27X        [ 0, 0, 0, 0, 0, 0, 0 ] ];;[127X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNow  we  construct  this  algebra in characteristic five and check its basic
+  properties:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XR := Algebra( GF(5), One(GF(5))*[x,y] );[127X[104X
+    [4X[28X<algebra over GF(5), with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XDimension( R );[127X[104X
+    [4X[28X6[128X[104X
+    [4X[25Xgap>[125X [27XSize( R );[127X[104X
+    [4X[28X15625[128X[104X
+    [4X[25Xgap>[125X [27XRadicalOfAlgebra( R ) = R;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThen we compute the adjoint group of [10XR[110X:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XG := AdjointGroup( R );;[127X[104X
+    [4X[25Xgap>[125X [27XSize(G);[127X[104X
+    [4X[28X15625[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNow  we  can find the generating set of minimal possible order for the group
+  [10XG[110X,  and check that [10XG[110X it is 3-generated. To do this, first we need to convert
+  it to the isomorphic PcGroup:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27Xf := IsomorphismPcGroup( G );;[127X[104X
+    [4X[25Xgap>[125X [27XH := Image( f );[127X[104X
+    [4X[28XGroup([ f1, f2, f3, f4, f5, f6 ])[128X[104X
+    [4X[25Xgap>[125X [27Xgens := MinimalGeneratingSet( H );;[127X[104X
+    [4X[25Xgap>[125X [27XLength( gens );[127X[104X
+    [4X[28X3[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YOne  can  also use [10XUnderlyingRingElement(PreImage(f,x))[110X to find the preimage
+  of [10Xx[110X in [10XG[110X.[133X
+  
+  [33X[0;0YIt  appears  that  the  adjoint  group  of  the algebra from example will be
+  3-generated in characteristic 3 as well:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XR := Algebra( GF(3), One(GF(3))*[x,y] );[127X[104X
+    [4X[28X<algebra over GF(3), with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XG := AdjointGroup( R );;[127X[104X
+    [4X[25Xgap>[125X [27XH := Image( IsomorphismPcGroup( G ) );[127X[104X
+    [4X[28XGroup([ f1, f2, f3, f4, f5, f6 ])[128X[104X
+    [4X[25Xgap>[125X [27XLength( MinimalGeneratingSet( H ) );[127X[104X
+    [4X[28X3[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YBut  this  is  not  the case in characteristic 2, where the adjoint group is
+  4-generated:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XR := Algebra( GF(2), One(GF(2))*[x,y] );[127X[104X
+    [4X[28X<algebra over GF(2), with 2 generators>[128X[104X
+    [4X[25Xgap>[125X [27XG := AdjointGroup( R );;[127X[104X
+    [4X[25Xgap>[125X [27XSize(G);[127X[104X
+    [4X[28X64[128X[104X
+    [4X[25Xgap>[125X [27XH := Image( IsomorphismPcGroup( G ) );[127X[104X
+    [4X[28XGroup([ f1, f2, f3, f4, f5, f6 ])[128X[104X
+    [4X[25Xgap>[125X [27XLength( MinimalGeneratingSet( H ) );[127X[104X
+    [4X[28X4[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  

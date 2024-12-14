@@ -1,0 +1,85 @@
+  
+  
+                                     [1X[5XCircle[105X[101X
+  
+  
+                         [1XAdjoint groups of finite rings[101X
+  
+  
+                                  Version 1.0
+  
+  
+                                25 October 2024
+  
+  
+                              Alexander Konovalov
+  
+                               Panagiotis Soules
+  
+  
+  
+  Alexander Konovalov
+      Email:    [7Xmailto:alexk@mcs.st-andrews.ac.uk[107X
+      Homepage: [7Xhttp://www.cs.st-andrews.ac.uk/~alexk/[107X
+      Address:  [33X[0;14YSchool of Computer Science[133X
+                [33X[0;14YUniversity of St Andrews[133X
+                [33X[0;14YJack Cole Building, North Haugh,[133X
+                [33X[0;14YSt Andrews, Fife, KY16 9SX, Scotland[133X
+  
+  
+  Panagiotis Soules
+      Email:    [7Xmailto:psoules@math.uoa.gr[107X
+      Address:  [33X[0;14YDepartment of Mathematics[133X
+                [33X[0;14YNational and Capodistrian University of Athens[133X
+                [33X[0;14YPanepistimioupolis, GR-15784, Athens, Greece[133X
+  
+  
+  
+  -------------------------------------------------------
+  [1XAbstract[101X
+  [33X[0;0YThe  [5XGAP[105X4  package  [5XCircle[105X extends the [5XGAP[105X functionality for computations in
+  adjoint  groups of associative rings. It provides functionality to construct
+  circle  objects  that will respect the circle multiplication [22Xr ⋅ s = r + s +
+  rs[122X,  and  to  compute adjoint semigroups and adjoint groups of finite rings.
+  Also  it  may  serve  as  an  example  of  extending the [5XGAP[105X system with new
+  multiplicative objects.[133X
+  
+  
+  -------------------------------------------------------
+  [1XCopyright[101X
+  [33X[0;0Y© 2006-2024 by Alexander Konovalov and Panagiotis Soules[133X
+  
+  [33X[0;0Y[5XCircle[105X  is free software; you can redistribute it and/or modify it under the
+  terms  of  the  GNU General Public License as published by the Free Software
+  Foundation;  either  version 2 of the License, or (at your option) any later
+  version.      For      details,      see      the     FSF's     own     site
+  [7Xhttp://www.gnu.org/licenses/gpl.html[107X.[133X
+  
+  [33X[0;0YIf  you  obtained [5XCircle[105X, we would be grateful for a short notification sent
+  to one of the authors.[133X
+  
+  [33X[0;0YIf  you  publish  a  result  which  was partially obtained with the usage of
+  [5XCircle[105X, please cite it in the following form:[133X
+  
+  [33X[0;0YA.  Konovalov, P. Soules. [13XCircle --- Adjoint groups of finite rings, Version
+  1.0;[113X 2024 ([7Xhttp://www.cs.st-andrews.ac.uk/~alexk/circle/[107X).[133X
+  
+  
+  -------------------------------------------------------
+  [1XAcknowledgements[101X
+  [33X[0;0YWe  acknowledge  very  much  Alexander  Hulpke  and James Mitchell for their
+  helpful  comments  and  advices, and the referee for testing the package and
+  useful suggestions.[133X
+  
+  
+  -------------------------------------------------------
+  
+  
+  [1XContents (Circle)[101X
+  
+  1 [33X[0;0YIntroduction[133X
+    1.1 [33X[0;0YGeneral aims[133X
+    1.2 [33X[0;0YInstallation and system requirements[133X
+  
+  
+  [32X
